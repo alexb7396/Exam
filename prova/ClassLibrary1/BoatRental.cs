@@ -1,22 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace ClassLibrary1
 {
     public class BoatRental:Company
     {
-        private Dictionary<Boat, int> harbour;
+        private List<Boat> harbour;
+        private List<Employee> skippers;
 
         public Boat[] Boats
         {
             get
             {
-                List<Boat> boats = new List<Boat>();
-
-                foreach (var type in harbour)
-                {
-                    boats.Add(type.Key);
-                }
-                return boats.ToArray();
+                return harbour.ToArray();
             }
         }
 
@@ -24,36 +20,55 @@ namespace ClassLibrary1
         {
             get
             {
-                int total = 0;
-
-                foreach (var type in harbour)
-                {
-                    total += type.Value;
-                }
-                return total;
+                return harbour.Count;
             }
         }
 
         public BoatRental(string name, string address) : base(name, address)
         {
-
+            harbour = new List<Boat>();
+            skippers = new List<Employee>();
         }
 
-        public void AddBoat(Boat boat, int amount)
+        public void AddBoats(params Boat[] boats)
         {
-            if (harbour.ContainsKey(boat))
+            foreach (var boat in boats)
             {
-                harbour[boat] += amount;
+                harbour.Add(boat);
             }
-            else
+        }
+
+        public void AddEmployees(params Employee[] employees)
+        {
+            foreach (var employee in employees)
             {
-                harbour.Add(boat, amount);
+                this.skippers.Add(employee);
             }
+        }
+
+        public decimal RequestQuote(TimeSpan rentalTime, Boat interestedBoat)
+        {
+            return interestedBoat.GetRentalCost(rentalTime);
         }
 
         public bool RentBoat(Customer costumer, Boat interestedBoat)
         {
-             
+            if(harbour.Remove(interestedBoat))
+            {
+                if (costumer.licence != null && costumer.licence == interestedBoat.licenseType)
+                {
+                    return true;
+                }
+                else if(skippers.Count>0)
+                {
+                    
+                }
+            }
+        }
+
+        public bool CheckBoatAvailability(Boat interestedBoat)
+        {
+            return harbour.Contains(interestedBoat);
         }
     }
 }
