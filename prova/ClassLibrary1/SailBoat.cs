@@ -8,7 +8,7 @@ namespace ClassLibrary1
     {
         private Licenses license = Licenses.A;
 
-        public override Licenses LicenseType()
+        public override Licenses GetLicenseType()
         {
             return this.license;
         }
