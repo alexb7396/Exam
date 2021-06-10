@@ -53,7 +53,7 @@ namespace ClassLibrary1
 
         public bool RentBoat(Customer costumer, Boat interestedBoat)
         {
-            git 
+             
         }
     }
 }

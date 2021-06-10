@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class MotorBoat:Boat
+    public class MotorBoat:Boat
     {
 
     }
