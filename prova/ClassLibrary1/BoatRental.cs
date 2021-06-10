@@ -51,9 +51,9 @@ namespace ClassLibrary1
             }
         }
 
-        public bool RentBoat(Costumer costumer)
+        public bool RentBoat(Customer costumer, Boat interestedBoat)
         {
-            
+            git 
         }
     }
 }
