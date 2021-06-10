@@ -6,20 +6,11 @@ namespace ClassLibrary1
 {
     public class SailBoat : Boat
     {
-        private double length;
-        private double weight; anno scadenza assicurazione
+        private Licenses license = Licenses.A;
 
-        public Licenses LicensesType
+        public override Licenses LicenseType()
         {
-            get
-            {
-                return licenseType;
-            }
+            return this.license;
         }
-        
-        public SailBoat(string name, bool needLicense, Licenses licenseType,
-            decimal hourlyCost) : base(name, needLicense, licenseType, hourlyCost) { }
-
-        
     }
 }

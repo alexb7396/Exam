@@ -6,26 +6,17 @@ namespace ClassLibrary1
 {
     public abstract class Boat
     {
-        public Licenses licenseType { get; private set; }
-        internal decimal hourlyCost;
+        public decimal HourlyCost { get; set; }
+        public double Length { get; set; }
+        public double Weight { get; set; }
+        public DateTime Registration { get; set;}
+        public DateTime Expiry { get; set; }
 
-        public Licenses LicenseType 
-        { 
-            get 
-            {
-                return 
-            } 
-        }
-
-        public Boat(string name, bool needLicense, Licenses licenseType, decimal hourlyCost)
-        {
-            this.licenseType = licenseType;
-            this.hourlyCost = hourlyCost;
-        }
+        public abstract Licenses LicenseType();
 
         public decimal GetRentalCost(TimeSpan rentalTime)
         {
-            return (decimal)rentalTime.TotalHours * hourlyCost;
+            return (decimal)rentalTime.TotalHours * HourlyCost;
         }
     }
 }
