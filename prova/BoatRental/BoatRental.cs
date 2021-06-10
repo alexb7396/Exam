@@ -53,14 +53,16 @@ namespace ClassLibrary1
 
         public bool RentBoat(Customer costumer, Boat interestedBoat)
         {
-            if(harbour.Remove(interestedBoat))
+            if(CheckBoatAvailability(interestedBoat))
             {
                 if (costumer.licence != null && costumer.licence == interestedBoat.GetLicenseType())
                 {
+                    harbour.Remove(interestedBoat);
                     return true;
                 }
                 else if(skippers.Count>0)
                 {
+                    harbour.Remove(interestedBoat);
                     skippers.Dequeue();
                     return true;
                 }
