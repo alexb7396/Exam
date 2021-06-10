@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class Class1
+    public class Employee
     {
+        public double SerialNumber { get; set; }
+        public double Salary { get; set; }
     }
 }

@@ -4,7 +4,9 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class Class1
+    public enum Licenses
     {
+        A,
+        B
     }
 }

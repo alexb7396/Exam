@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class Class1
+    public class Skipper : Employee, IAmAvaible
     {
+        private bool availability = true;
     }
 }
