@@ -4,7 +4,8 @@ using System.Text;
 
 namespace ClassLibrary1
 {
-    class Class1
+    public interface IAmAvaible
     {
+        public bool CheckAvailability();
     }
 }

@@ -6,5 +6,6 @@ namespace ClassLibrary1
 {
     public interface IHaveLicense
     {
+        public bool GetLicence();
     }
 }
