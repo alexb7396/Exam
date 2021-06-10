@@ -51,16 +51,9 @@ namespace ClassLibrary1
             }
         }
 
-        public bool RentBoat(Boat boat, int amount)
+        public bool RentBoat(Costumer costumer)
         {
-            if (harbour.ContainsKey(boat))
-            {
-                harbour[boat] += amount;
-            }
-            else
-            {
-                harbour.Add(boat, amount);
-            }
+            
         }
     }
 }
