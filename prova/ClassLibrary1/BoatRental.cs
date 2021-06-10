@@ -6,7 +6,7 @@ namespace ClassLibrary1
     public class BoatRental:Company
     {
         private List<Boat> harbour;
-        private List<Employee> skippers;
+        private Queue<Employee> skippers;
 
         public Boat[] Boats
         {
@@ -27,7 +27,7 @@ namespace ClassLibrary1
         public BoatRental(string name, string address) : base(name, address)
         {
             harbour = new List<Boat>();
-            skippers = new List<Employee>();
+            skippers = new Queue<Employee>();
         }
 
         public void AddBoats(params Boat[] boats)
@@ -42,7 +42,7 @@ namespace ClassLibrary1
         {
             foreach (var employee in employees)
             {
-                this.skippers.Add(employee);
+                this.skippers.Enqueue(employee);
             }
         }
 
@@ -55,15 +55,18 @@ namespace ClassLibrary1
         {
             if(harbour.Remove(interestedBoat))
             {
-                if (costumer.licence != null && costumer.licence == interestedBoat.licenseType)
+                if (costumer.licence != null && costumer.licence == interestedBoat.GetLicenseType())
                 {
                     return true;
                 }
                 else if(skippers.Count>0)
                 {
-                    
+                    skippers.Dequeue();
+                    return true;
                 }
             }
+
+            return false;
         }
 
         public bool CheckBoatAvailability(Boat interestedBoat)
