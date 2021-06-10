@@ -12,10 +12,7 @@ namespace ClassLibrary1
         }
         public bool CheckAvailability()
         {
-            if (this.availability == true)
-                return true;
-            else
-                return false;
+            return this.availability;
         }
         public void ChangeAvailability()
         {
