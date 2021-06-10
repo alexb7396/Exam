@@ -12,7 +12,7 @@ namespace ClassLibrary1
         public DateTime Registration { get; set;}
         public DateTime Expiry { get; set; }
 
-        public abstract Licenses LicenseType();
+        public abstract Licenses GetLicenseType();
 
         public decimal GetRentalCost(TimeSpan rentalTime)
         {

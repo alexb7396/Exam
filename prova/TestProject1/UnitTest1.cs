@@ -26,8 +26,16 @@ namespace TestProject1
             MotorBoat motorBoat4 = new MotorBoat();
             motorBoat4.HourlyCost = 30;
             BoatRental myboatRental = new BoatRental("BalestraMoretto & CO","Genova, Corso Italia 2");
-            myboatRental.AddBoat
-            
+
+            myboatRental.AddBoats(sailBoat1,);
+            myboatRental.AddBoats(sailBoat2);
+            myboatRental.AddBoats(sailBoat3);
+            myboatRental.AddBoats(sailBoat4);
+            myboatRental.AddBoats(motorBoat1);
+            myboatRental.AddBoats(motorBoat2);
+            myboatRental.AddBoats(motorBoat3);
+            myboatRental.AddBoats(motorBoat4);
+
         }
        
         [TestMethod]

@@ -7,7 +7,7 @@ namespace ClassLibrary1
     public class MotorBoat : Boat
     {
         private Licenses licence = Licenses.B;
-        public override Licenses LicenseType()
+        public override Licenses GetLicenseType()
         {
             return this.licence;
         }
