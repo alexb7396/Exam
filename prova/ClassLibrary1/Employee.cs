@@ -8,5 +8,10 @@ namespace ClassLibrary1
     {
         public double SerialNumber { get; set; }
         public double Salary { get; set; }
+        public Employee(double serialNumber, double salary)
+        {
+            this.SerialNumber = serialNumber;
+            this.Salary = salary;
+        }
     }
 }
