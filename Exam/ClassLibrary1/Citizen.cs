@@ -7,9 +7,9 @@ namespace ContactManagement
 {
     public class Citizen : Person, IHaveCovid 
     {
-        private double ID { get; set; }
-        private bool State { get; set; }
-        private bool contactWithPositive;
+        public double ID { get; private set; }
+        public bool State { get; private set; }
+        public bool ContactWithPositive { get; set; }
         private List<Citizen> contact = new List<Citizen>();
         public bool GetState()
         {
@@ -23,7 +23,7 @@ namespace ContactManagement
         {
             if(contactTime.TotalMinutes>= 15 && !contact.Contains(citizien))
             {
-                contactWithPositive = citizien.GetState();
+                ContactWithPositive = citizien.GetState();
                 contact.Add(citizien);
             }
         }

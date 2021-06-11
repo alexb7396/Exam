@@ -1,5 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-
+using ContactManagement;
 namespace TestProject1
 {
     [TestClass]
@@ -8,6 +8,7 @@ namespace TestProject1
         [TestMethod]
         public void TestMethod1()
         {
+            Citizen positiveCitizen = new Citizen();
         }
     }
 }
