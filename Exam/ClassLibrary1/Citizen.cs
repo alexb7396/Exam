@@ -23,7 +23,7 @@ namespace ContactManagement
         {
             if(contactTime.TotalMinutes>= 15 && !contact.Contains(citizien))
             {
-                ContactWithPositive = citizien.GetState();
+                ContactWithPositive = ContactWithPositive? ContactWithPositive :citizien.GetState();
                 contact.Add(citizien);
             }
         }

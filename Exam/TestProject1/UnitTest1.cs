@@ -20,6 +20,8 @@ namespace TestProject1
             HealthCompany asl = new HealthCompany();
             asl.AddTrakedCitizen(citizen1);
             asl.AddTrakedCitizen(citizen2);
+            asl.AddTrakedCitizen(citizen3);
+            asl.AddTrakedCitizen(positiveCitizen);
 
             citizen1.ManageContact(positiveCitizen, new TimeSpan(1, 16, 0));
             positiveCitizen.ManageContact(citizen1, new TimeSpan(1, 16, 0));
@@ -38,9 +40,23 @@ namespace TestProject1
             citizen3.UpdateContact(asl);
             positiveCitizen.UpdateContact(asl);
 
-            Assert.AreEqual()
+            Assert.AreEqual(1, asl.PositiveCitizens.Count);
+            Assert.AreEqual(4, asl.TrakedCitizens.Count);
+            Assert.IsTrue(citizen1.ContactWithPositive);
+            Assert.IsTrue(!citizen2.ContactWithPositive);
+            Assert.IsTrue(!citizen3.ContactWithPositive);
 
-            
+            asl.SwitchCitizenState(citizen3,true);
+
+            Assert.AreEqual(2, asl.PositiveCitizens.Count);
+            Assert.AreEqual(4, asl.TrakedCitizens.Count);
+            Assert.IsTrue(citizen1.ContactWithPositive);
+            Assert.IsTrue(citizen2.ContactWithPositive);
+            Assert.IsTrue(!citizen3.ContactWithPositive);
+
+
+
+
         }
     }
 }
