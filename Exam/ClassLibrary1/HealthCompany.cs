@@ -7,6 +7,7 @@ namespace ContactManagement
     {
         public List<Citizen> PositiveCitizens { get; private set; }
         public List<Citizen> TrakedCitizens { get; private set;}
+        public Dictionary<Citizen,List<Citizen>> GlobalContacts { get; private set; }
         public double PositivePercentage => (double)PositiveCitizens.Count / (double)TrakedCitizens.Count;
 
         public void AddTrakedCitizen(Citizen citizen)
@@ -46,6 +47,20 @@ namespace ContactManagement
                 if (citizen.GetState())
                 {
                     citizen.ChangeState();
+                }
+            }
+        }
+        public void UpdateGlobalContacts(Citizen interestedCitizen,List<Citizen> contacts)
+        {
+            if (!GlobalContacts.ContainsKey(interestedCitizen))
+            {
+                GlobalContacts.Add(interestedCitizen, new List<Citizen>());
+            }
+            foreach (var contact in contacts)
+            {
+                if (!GlobalContacts[interestedCitizen].Contains(contact))
+                {
+                    GlobalContacts[interestedCitizen].Add(contact);
                 }
             }
         }
