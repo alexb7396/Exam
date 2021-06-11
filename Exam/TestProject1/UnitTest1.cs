@@ -9,6 +9,6 @@ namespace TestProject1
         public void TestMethod1()
         {
             Citizen positiveCitizen = new Citizen();
-        }
+            positiveCitizen.State = true;        }
     }
 }
