@@ -7,8 +7,8 @@ namespace ContactManagement
 {
     public class Citizen : Person, IHaveCovid 
     {
-        public double ID { get; private set; }
-        public bool State { get; private set; }
+        public double ID { get; set; }
+        public bool State { get; set; }
         public bool ContactWithPositive { get; set; }
         private List<Citizen> contact = new List<Citizen>();
         public bool GetState()
@@ -26,6 +26,10 @@ namespace ContactManagement
                 ContactWithPositive = citizien.GetState();
                 contact.Add(citizien);
             }
+        }
+        public void UpdateContact(HealthCompany company)
+        {
+            company.UpdateGlobalContacts(this,contact);
         }
     }
 }
