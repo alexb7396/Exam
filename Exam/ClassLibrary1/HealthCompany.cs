@@ -5,10 +5,17 @@ namespace ContactManagement
 {
     public class HealthCompany : Company
     {
-        public List<Citizen> PositiveCitizens { get; private set; }
-        public List<Citizen> TrakedCitizens { get; private set;}
-        public Dictionary<Citizen,List<Citizen>> GlobalContacts { get; private set; }
+        public List<Citizen> PositiveCitizens { get; set; }
+        public List<Citizen> TrakedCitizens { get; set;}
+        public Dictionary<Citizen,List<Citizen>> GlobalContacts { get; set; }
         public double PositivePercentage => (double)PositiveCitizens.Count / (double)TrakedCitizens.Count;
+
+        public HealthCompany() : base()
+        {
+            PositiveCitizens = new List<Citizen>();
+            TrakedCitizens = new List<Citizen>();
+            GlobalContacts = new Dictionary<Citizen, List<Citizen>>();
+        }
 
         public void AddTrakedCitizen(Citizen citizen)
         {
