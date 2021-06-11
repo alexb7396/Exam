@@ -27,5 +27,9 @@ namespace ContactManagement
                 contact.Add(citizien);
             }
         }
+        public void UpdateContact(HealthCompany company)
+        {
+            company.UpdateGlobalContacts(this,contact);
+        }
     }
 }
