@@ -4,7 +4,7 @@ using System.Text;
 
 namespace ContactManagement
 {
-    class Class1
+    public interface IHaveCovid
     {
     }
 }

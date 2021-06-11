@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ClassLibrary1
+namespace ContactManagement
 {
-    public class Citizen : IAmPositive
+    public class Citizen : Person, IHaveCovid 
     {
+
     }
 }
