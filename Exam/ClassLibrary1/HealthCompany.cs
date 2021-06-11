@@ -36,10 +36,18 @@ namespace ContactManagement
             if(ToPositive)
             {
                 PositiveCitizens.Add(citizen);
+                if(!citizen.GetState())
+                {
+                    citizen.ChangeState();
+                }
             }
             else
             {
                 PositiveCitizens.Remove(citizen);
+                if (citizen.GetState())
+                {
+                    citizen.ChangeState();
+                }
             }
         }
     }
