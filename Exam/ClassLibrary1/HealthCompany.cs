@@ -40,6 +40,10 @@ namespace ContactManagement
                 {
                     citizen.ChangeState();
                 }
+                foreach (Citizen contact in GlobalContacts[citizen])
+                {
+                    contact.ContactWithPositive = true;
+                }
             }
             else
             {
