@@ -7,7 +7,7 @@ namespace TestProject1
     public class UnitTest1
     {
         [TestMethod]
-        public void TestMethod1()
+        public void TestingBaseFunctionalities()
         {
             Citizen positiveCitizen = new Citizen();
             positiveCitizen.State = true;
@@ -54,9 +54,45 @@ namespace TestProject1
             Assert.IsTrue(citizen2.ContactWithPositive);
             Assert.IsTrue(!citizen3.ContactWithPositive);
 
+        }
 
+        [TestMethod]
+        public void TestingExceptions()
+        {
+            Citizen positiveCitizen = new Citizen();
+            positiveCitizen.State = true;
+            Citizen citizen1 = new Citizen();
+            citizen1.State = false;
+            Citizen citizen2 = new Citizen();
+            citizen2.State = false;
+            HealthCompany asl = new HealthCompany();
 
+            asl.AddTrakedCitizen(positiveCitizen);
+            asl.AddTrakedCitizen(citizen1);
 
+            try
+            {
+                asl.SwitchCitizenState(positiveCitizen, true);
+            }
+            catch (ApplicationException)
+            {
+                try
+                {
+                    asl.SwitchCitizenState(citizen1, false);
+                }
+                catch (ApplicationException)
+                {
+                    try
+                    {
+                        asl.SwitchCitizenState(citizen2, true);
+                    }
+                    catch (ApplicationException)
+                    {
+                        return;
+                    }
+                }
+            }
+            throw new Exception("Expected exceptions");
         }
     }
 }

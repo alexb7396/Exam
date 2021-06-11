@@ -30,6 +30,7 @@ namespace ContactManagement
         public void UpdateContact(HealthCompany company)
         {
             company.UpdateGlobalContacts(this,contact);
+
         }
     }
 }
