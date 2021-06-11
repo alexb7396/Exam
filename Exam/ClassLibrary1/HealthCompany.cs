@@ -9,14 +9,13 @@ namespace ContactManagement
         public List<Citizen> TrakedCitizens { get; private set;}
         public double PositivePercentage => (double)PositiveCitizens.Count / (double)TrakedCitizens.Count;
 
-        public void AddPositiveCitizen(Citizen positiveCitizen)
-        {
-            PositiveCitizens.Add(positiveCitizen);
-            TrakedCitizens.Add(positiveCitizen);
-        }
         public void AddTrakedCitizen(Citizen citizen)
         {
             TrakedCitizens.Add(citizen);
+            if(citizen.GetState())
+            {
+                PositiveCitizens.Add(citizen);
+            }
         }
         public void SwitchCitizenState(Citizen citizen,bool ToPositive)
         {
